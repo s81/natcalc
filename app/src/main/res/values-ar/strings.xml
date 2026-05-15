@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ناتكالك</string>
+    <string name="app_subtitle">حاسبة اللغة الطبيعية</string>
+    <string name="hint_input">اكتب أو انطق حسابك…</string>
+    <string name="title_history">سجل الحسابات</string>
+    <string name="empty_history">لا توجد حسابات بعد.\nجرّب أن تسأل شيئاً!</string>
+    <string name="btn_clear_history">مسح السجل</string>
+    <string name="voice_prompt">قل حسابك…</string>
+    <string name="voice_not_available">الإدخال الصوتي غير متاح على هذا الجهاز</string>
+    <string name="action_history">السجل</string>
+    <string name="action_clear">مسح المحادثة</string>
+</resources>

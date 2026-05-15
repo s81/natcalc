@@ -1,0 +1,25 @@
+package com.natcalc.presentation.history
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.natcalc.domain.model.Message
+import com.natcalc.domain.usecase.ClearHistoryUseCase
+import com.natcalc.domain.usecase.GetHistoryUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class HistoryViewModel @Inject constructor(
+    getHistory: GetHistoryUseCase,
+    private val clearHistory: ClearHistoryUseCase
+) : ViewModel() {
+
+    val history: StateFlow<List<Message>> = getHistory()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    fun clear() = viewModelScope.launch { clearHistory() }
+}
